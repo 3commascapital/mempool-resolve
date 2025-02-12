@@ -1,4 +1,4 @@
-# mempool resolver
+# Mempool Resolve
 
 Sometimes transactions get stuck in a mempool and they are not communicated to other mempools. This might be ok for underpriced transactions, but for well priced transactions, this generally should not happen. You can use these scripts to find well priced transactions and re-broadcast them (widecast) between pools.
 
