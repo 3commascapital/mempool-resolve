@@ -1,0 +1,37 @@
+{
+  "name": "mempool-resolve",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "tsx src/bin/print-diff.ts",
+    "print-diff": "tsx src/bin/print-diff.ts",
+    "test": "prettier --check . && xo && ava"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sindresorhus/tsconfig": "^3.0.1",
+    "@types/node": "^22.13.1",
+    "@types/react": "^19.0.8",
+    "@types/yargs": "^17.0.33",
+    "ava": "^6.2.0",
+    "dotenv": "^16.4.7",
+    "ink": "^3.2.0",
+    "ink-spinner": "^5.0.0",
+    "meow": "^13.2.0",
+    "prettier": "^3.5.0",
+    "print-diff": "^2.0.0",
+    "promise-limit": "^2.7.0",
+    "react": "^18.3.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "viem": "^2.23.0",
+    "xo": "^0.60.0",
+    "yargs": "^17.7.2"
+  }
+}
