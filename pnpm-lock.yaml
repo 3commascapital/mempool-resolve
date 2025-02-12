@@ -11,6 +11,9 @@ importers:
       '@sindresorhus/tsconfig':
         specifier: ^3.0.1
         version: 3.0.1
+      '@types/lodash':
+        specifier: ^4.17.15
+        version: 4.17.15
       '@types/node':
         specifier: ^22.13.1
         version: 22.13.1
@@ -32,6 +35,9 @@ importers:
       ink-spinner:
         specifier: ^5.0.0
         version: 5.0.0(ink@3.2.0(@types/react@19.0.8)(react@18.3.1))(react@18.3.1)
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       meow:
         specifier: ^13.2.0
         version: 13.2.0
@@ -370,6 +376,9 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/lodash@4.17.15':
+    resolution: {integrity: sha512-w/P33JFeySuhN6JLkysYUK2gEmy9kHHFN7E8ro0tkfmlDOgxBDzWEZ/J8cWA+fHqFevpswDTFZnDx+R9lbL6xw==}
 
   '@types/node@22.13.1':
     resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
@@ -3049,6 +3058,8 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/lodash@4.17.15': {}
 
   '@types/node@22.13.1':
     dependencies:
