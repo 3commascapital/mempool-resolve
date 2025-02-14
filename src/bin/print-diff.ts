@@ -1,3 +1,6 @@
+import fetchCookie from 'fetch-cookie'
+global.fetch = fetchCookie(global.fetch, new fetchCookie.toughCookie.CookieJar())
+
 import { args } from '../args.js'
 import { verifySameChain, watchMempools, printMempoolDiffs } from '../index.js'
 import { setupUI } from '../ui/index.js'

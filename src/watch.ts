@@ -8,8 +8,12 @@ const printError = (error: unknown) => {
   console.error(error)
 }
 
+type Contents = GetTxpoolContentReturnType & {
+  baseFee?: GetTxpoolContentReturnType['queued']
+}
+
 export type Pool = Endpoint & {
-  contents: GetTxpoolContentReturnType
+  contents: Contents
   all: Set<Hex>
   deltas: {
     pending: {
@@ -62,7 +66,7 @@ export const watchMempools = async (endpoints: Endpoint[], ui: InkApp) => {
     await Promise.all(
       endpoints.map((endpoint) => {
         return Promise.all([
-          retry(() => endpoint.testClient.getTxpoolContent()),
+          retry(() => endpoint.testClient.getTxpoolContent() as Promise<Contents>),
           retry(() => endpoint.publicClient.getBlock(getBlockParams)),
         ])
       })
@@ -75,9 +79,11 @@ export const watchMempools = async (endpoints: Endpoint[], ui: InkApp) => {
           p.map(([pool, block], i) => {
             const endpoint = endpoints[i]!
             const pendingList = new Set(toList(pool.pending))
-            const queuedList = new Set(toList(pool.queued))
+            const queued = pool.baseFee ?? pool.queued
+            const queuedList = new Set(toList(queued))
             const all = new Set([...pendingList, ...queuedList])
             const previousContents = previousPools.get(endpoint)?.contents
+            const previousQueued = previousContents?.baseFee ?? previousContents?.queued
             return [
               endpoint,
               {
@@ -89,7 +95,7 @@ export const watchMempools = async (endpoints: Endpoint[], ui: InkApp) => {
                 all,
                 deltas: {
                   pending: findDeltas(previousContents?.pending, pendingList),
-                  queued: findDeltas(previousContents?.queued, queuedList),
+                  queued: findDeltas(previousQueued, queuedList),
                 },
               },
             ]

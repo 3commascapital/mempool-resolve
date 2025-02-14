@@ -29,6 +29,9 @@ importers:
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
+      fetch-cookie:
+        specifier: ^3.1.0
+        version: 3.1.0
       ink:
         specifier: ^3.2.0
         version: 3.2.0(@types/react@19.0.8)(react@18.3.1)
@@ -1278,6 +1281,9 @@ packages:
   fastq@1.19.0:
     resolution: {integrity: sha512-7SFSRCNjBQIZH/xZR3iy5iQYR8aGBE0h3VG6/cwlbrpdciNYBMotQav8c1XI3HjHH+NikUpP53nPdlZSdWmFzA==}
 
+  fetch-cookie@3.1.0:
+    resolution: {integrity: sha512-s/XhhreJpqH0ftkGVcQt8JE9bqk+zRn4jF5mPJXWZeQMCI5odV9K+wEWYbnzFPHgQZlvPSMjS4n4yawWE8RINw==}
+
   figures@6.1.0:
     resolution: {integrity: sha512-d+l3qxjSesT4V7v2fh+QnmFnUWv9lSpjarhShNTgBOfA0ttejbQUAlHLitbjkoRiDulW0OPoQPYIGhIC8ohejg==}
     engines: {node: '>=18'}
@@ -2339,6 +2345,9 @@ packages:
   serialize-javascript@6.0.2:
     resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
 
+  set-cookie-parser@2.7.1:
+    resolution: {integrity: sha512-IOc8uWeOZgnb3ptbCURJWNjWUPcO3ZnTTdzsurqERrP6nPyv+paC55vJM0LpOlT2ne+Ix+9+CRG1MNLlyZ4GjQ==}
+
   set-function-length@1.2.2:
     resolution: {integrity: sha512-pgRc4hJ4/sNjWCSS9AmnS40x3bNMDTknHgL5UaMBTMyJnU90EgWh1Rz+MC9eFu4BuN/UwZjKQuY/1v3rM7HMfg==}
     engines: {node: '>= 0.4'}
@@ -2544,6 +2553,13 @@ packages:
     resolution: {integrity: sha512-TIsDdtKo6+XrPtiTm1ssmMngN1sAhyKnTO2kunQWqNPWIVvCm15Wmw4SWInwTVgJ5u/Tr04+8Ei9TNcw4x4ONA==}
     engines: {node: '>=4'}
 
+  tldts-core@6.1.77:
+    resolution: {integrity: sha512-bCaqm24FPk8OgBkM0u/SrEWJgHnhBWYqeBo6yUmcZJDCHt/IfyWBb+14CXdGi4RInMv4v7eUAin15W0DoA+Ytg==}
+
+  tldts@6.1.77:
+    resolution: {integrity: sha512-lBpoWgy+kYmuXWQ83+R7LlJCnsd9YW8DGpZSHhrMl4b8Ly/1vzOie3OdtmUJDkKxcgRGOehDu5btKkty+JEe+g==}
+    hasBin: true
+
   to-absolute-glob@3.0.0:
     resolution: {integrity: sha512-loO/XEWTRqpfcpI7+Jr2RR2Umaaozx1t6OSVWtMi0oy5F/Fxg3IC+D/TToDnxyAGs7uZBGT/6XmyDUxgsObJXA==}
     engines: {node: '>=0.10.0'}
@@ -2551,6 +2567,10 @@ packages:
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
+
+  tough-cookie@5.1.1:
+    resolution: {integrity: sha512-Ek7HndSVkp10hmHP9V4qZO1u+pn1RU5sI0Fw+jCU3lyvuMZcgqsNgc6CmJJZyByK4Vm/qotGRJlfgAX8q+4JiA==}
+    engines: {node: '>=16'}
 
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
@@ -4169,6 +4189,11 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
+  fetch-cookie@3.1.0:
+    dependencies:
+      set-cookie-parser: 2.7.1
+      tough-cookie: 5.1.1
+
   figures@6.1.0:
     dependencies:
       is-unicode-supported: 2.1.0
@@ -5198,6 +5223,8 @@ snapshots:
     dependencies:
       randombytes: 2.1.0
 
+  set-cookie-parser@2.7.1: {}
+
   set-function-length@1.2.2:
     dependencies:
       define-data-property: 1.1.4
@@ -5423,6 +5450,12 @@ snapshots:
 
   time-zone@1.0.0: {}
 
+  tldts-core@6.1.77: {}
+
+  tldts@6.1.77:
+    dependencies:
+      tldts-core: 6.1.77
+
   to-absolute-glob@3.0.0:
     dependencies:
       is-absolute: 1.0.0
@@ -5431,6 +5464,10 @@ snapshots:
   to-regex-range@5.0.1:
     dependencies:
       is-number: 7.0.0
+
+  tough-cookie@5.1.1:
+    dependencies:
+      tldts: 6.1.77
 
   tr46@0.0.3: {}
 

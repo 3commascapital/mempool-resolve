@@ -8,6 +8,7 @@ import { Differences } from './Differences.js'
 import { Widecasts } from './Widecasts.js'
 import type { Endpoint } from '../verification.js'
 import type { Args } from '../args.js'
+import { formatUnits } from 'viem'
 
 export type UI = Partial<MempoolDeltas> &
   Partial<MempoolStructure> &
@@ -26,13 +27,24 @@ export type UI = Partial<MempoolDeltas> &
     possibleWidecasts?: number
   }
 
+const addDelimiterToDecimal = (value: string, delimiter: string = ',') => {
+  const [integer, decimal] = value.split('.') as [string, string]
+  return [integer.replace(/\B(?=(\d{3})+(?!\d))/g, delimiter), decimal.slice(0, 4)].join('.')
+}
+
 const App = (props: UI) => {
   const update = new Date()
   return (
     <>
-      <Box justifyContent="space-between" width={60}>
+      <Box justifyContent="space-between" width={80}>
         <Text italic color="gray">
           Last updated: {update.toISOString().slice(0, 21)}
+        </Text>
+        <Text italic color="gray">
+          {props.pools?.size
+            ? addDelimiterToDecimal(formatUnits([...props.pools.entries()][0]?.[1].block.baseFeePerGas ?? 0n, 9))
+            : ''}
+          &nbsp;gwei
         </Text>
       </Box>
       <Box>
